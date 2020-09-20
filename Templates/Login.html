@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ToDoList App</title>
+</head>
+<style type="text/css">
+	body{
+		background-image: url(https://previews.123rf.com/images/jirsak/jirsak1707/jirsak170700007/82255755-cybersecurity-and-information-technology-security-services-concept-login-or-sign-in-internet-concept.jpg);
+		background-size: 100%;
+	}
+	.block{
+		position: absolute;
+		left: 470px;
+		top:  150px;
+		background-image: url(http://blog.hostbaby.com/wp-content/uploads/2013/07/antiquepaper_1400x900.jpg);
+		background-size: 100% 100%;
+		padding: 50px;
+
+	}
+	.loginbutton{
+		height: 40px;
+		width: 250px;
+		background-color: transparent; 
+	}
+	.loginbutton:hover {
+		background-color: lightblue;
+		transition-duration: 0.3s;
+	}
+</style>
+<body>
+	<div class="block">
+		<form action="/authenticate" method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Login" class="loginbutton" />
+		</form>
+		<button type="button" onclick="redirect()" class="loginbutton">
+			Signup
+		</button>
+	</div>
+</body>
+<script type="text/javascript">
+	function redirect()
+	{
+		window.location.href = "signup/";
+	}
+</script>
+</html>
